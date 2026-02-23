@@ -1,34 +1,161 @@
-# Kevin Chen
-**Email:** kec050@ucsd.edu
+# Project Title
 
-**Section:** B16, Agentic Applications and Knowledge Graphs in Life Sciences  
-**Mentors:** Abed El-Husseini, Balaji Veeramani
+Welcome to our project website! 👋  
+This site shares our work, process, and key findings from our project. We set out to explore a meaningful problem, apply thoughtful methods, and better understand the results through analysis and experimentation.
 
 ---
 
-## Quarter 2 Project Proposal Brainstorming
+## 👥 Team
 
-**1. What is the most interesting topic covered in your domain this quarter?**
+**Members**
+- Kevin Chen  
+- Parna Praveen  
+- Sia Patodia  
+- Jovanna Fernando  
 
-The most interesting topic covered in my domain this quarter has been the large variety of agentic frameworks options that are available. There are many tools and services available that allow developers and engineers to create agentic applications using these frameworks, such as LangChain and CrewAI. It's fascinating how these frameworks can be used to create agents using leading LLMs sucha as Claude and GPT that can complete tasks and work that people would normally have to manually complete. I've been exploring a ton with LangChain and Claude in my Quarter 1 project and have been gaining more experience in using this framework to create an agent and a workflow that can answer biomedical research questions through querying a database all through the agent.
+**Mentors**
+- Abed El-Husseini  
+- Balaji Veeramani  
 
-**2. Describe a potential investigation you would like to pursue for your Quarter 2 Project.**
+---
 
+## 📌 Project Overview
 
-I'm interested to investigate developing an adaptive agentic AI system that serves as a personalized medical assistant throughout the entire patient process. This system would use large language models and retrieval-augmented generation to provide intelligent medical support before, during, and after doctor visits.
-The AI agent would conduct an intelligent symptom intake, asking follow-up questions based on the patient's responses. It would help patient explain and understand their concerns more effectively and prepare relevant questions for their upcoming appointment.
+Our project focuses on investigating a real-world problem using data-driven and computational approaches. We aimed to better understand patterns, evaluate potential solutions, and draw meaningful conclusions based on our findings.
 
-The system would serve as a real-time companion, helping patients understand medical terms being used, tracking key information and recommendations from the doctor, and suggesting important follow up questions the patient might want to ask.
+Throughout this project, we emphasized clarity, reproducibility, and thoughtful design.
 
-This project would combine  natural language processing, information retrieval, prompt engineering, and human-computer interaction and consider the ethical implications of AI in healthcare settings.
+---
 
-**3. What is a potential change you'd make to the approach taken in your current Quarter 1 Project?**
+## 🎯 Motivation
 
-Based on my current Quarter 1 project, one significant improvement I would make is implementing interactive query refinement through multi-turn conversations rather than the current one-shot question-answering approach. Currently, when a user asks a question like "What genes are linked to diabetes?", the system returns all matching results in a single response. However, biomedical researchers usually work iteratively and refine their queries based on initial findings. 
+Many real-world problems require careful analysis before decisions can be made. We were motivated by the opportunity to:
 
-The improved system would allow the agent to engage users conversationally by asking clarifying questions when results are too broad. For example, if the initial query returns 100 genes, the agent could respond: "I found 100 diabetes-related genes. Would you like to filter by diabetes type (Type 1 vs Type 2), confidence level, or specific chromosomes?" Based on the user's response, the agent would refine the Cypher query and narrow results progressively. This approach would better represent actual research workflows, makes the system more useful for exploratory analysis.
+- Apply concepts learned in class to a practical setting  
+- Work collaboratively on a structured research-style project  
+- Gain experience designing, implementing, and evaluating a solution  
 
+Understanding this problem helps us think critically about how data and computation can inform real decisions.
 
-**4. What other techniques would you be interested in using in your project?**
+---
 
-I would be interested in adding capabilities that combines knowledge graphs with retrieval-augmented generation from scientific literature. Currently, the system only queries structured data in the Neo4j knowledge graph. By integrating RAG, the agent could search biomedical literature databases like PubMed to retrieve relevant research papers that provide context, evidence, and explanations for the relationships found in the graph.
+## ❓ Problem Statement
+
+Our primary goal was to answer the following question:
+
+> How can we effectively analyze and model this problem to produce reliable and interpretable results?
+
+More specifically, we aimed to:
+- Define measurable objectives  
+- Develop an approach to evaluate performance  
+- Compare outcomes and interpret results  
+
+---
+
+## 🔎 Background
+
+Before beginning our implementation, we explored:
+
+- Existing methods related to this problem  
+- Prior research and common techniques  
+- Key theoretical concepts necessary for understanding our approach  
+
+This helped us identify best practices and potential pitfalls.
+
+---
+
+## 🛠️ Methods & Approach
+
+### Data
+
+We worked with a structured dataset relevant to our research question.  
+We performed preprocessing steps such as:
+
+- Cleaning missing or inconsistent values  
+- Normalizing or transforming features where necessary  
+- Splitting data for evaluation  
+
+### Tools & Technologies
+
+Our implementation primarily used:
+
+- Python  
+- Standard data science and visualization libraries  
+- Version control with Git and GitHub  
+
+### Implementation
+
+Our approach included:
+
+- Designing a clear experimental setup  
+- Implementing baseline and improved models/strategies  
+- Evaluating performance using defined metrics  
+
+We focused on building a clean and reproducible workflow.
+
+---
+
+## 📊 Results
+
+Our results provided useful insight into the effectiveness of our approach.
+
+We evaluated performance using quantitative metrics and visual analysis.  
+The findings highlight:
+
+- Strengths of our chosen method  
+- Trade-offs between complexity and performance  
+- Areas where improvements are possible  
+
+(Visualizations and detailed metrics will be added here.)
+
+---
+
+## 💡 Discussion
+
+Through this project, we learned:
+
+- The importance of careful data preprocessing  
+- How small design choices can significantly impact outcomes  
+- The value of testing assumptions  
+
+We also encountered challenges, including debugging implementation issues and refining our evaluation process.
+
+---
+
+## 🚧 Limitations
+
+While our project produced meaningful results, there are limitations:
+
+- Limited dataset size or scope  
+- Assumptions made during modeling  
+- Time constraints that limited experimentation  
+
+These factors should be considered when interpreting results.
+
+---
+
+## 🔮 Future Work
+
+If we were to continue this project, we would:
+
+- Experiment with alternative methods or models  
+- Collect or incorporate additional data  
+- Improve interpretability and visualization  
+
+There are many opportunities to expand this work further.
+
+---
+
+## 📂 Code & Resources
+
+GitHub Repository:  
+[Link will be added here]
+
+Final Report:  
+[Link will be added here]
+
+---
+
+## 🙌 Acknowledgments
+
+We would like to thank our mentors for their guidance and support throughout this project.
