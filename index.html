@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personalized Supplement Recommender</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">Supplement Recommender</span>
+    <ul class="nav-links">
+      <li><a href="#motivation">Motivation</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#architecture">System</a></li>
+      <li><a href="#learn-more">Learn More</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+
+    <h1 class="hero-title">Personalized Supplement <em>Recommender</em></h1>
+
+    <p class="hero-subtitle">Using Agents and Knowledge Graphs</p>
+
+    <p class="hero-desc">
+      An AI-powered system that understands your complete health profile and delivers
+      supplement guidance tailored specifically to you - not generic advice.
+    </p>
+
+    <div class="hero-pills">
+      <span class="pill pill-sage">Neo4j Knowledge Graph</span>
+      <span class="pill pill-lav">LangGraph Agents</span>
+      <span class="pill pill-peach">Personalized Health</span>
+    </div>
+
+  </section>
+
+  <section id="motivation">
+
+    <p class="section-label">Introduction</p>
+
+    <h2 class="section-title">Why does personalized supplementation matter?</h2>
+
+    <div class="section-divider"></div>
+
+    <p class="body-text">
+      Millions of people take dietary supplements every day - yet most recommendations
+      come from one-size-fits-all lists that ignore your age, medications, existing
+      conditions, and lifestyle. What's beneficial for one person can be harmful or
+      redundant for another.
+    </p>
+    <p class="body-text">
+      Our project addresses this gap by building a system that treats you as an individual.
+      By combining a rich health knowledge graph with a multi-agent AI workflow, we can
+      reason about your entire health profile and surface recommendations that are safe,
+      relevant, and evidence-backed.
+    </p>
+
+    <div class="motivation-cards">
+
+      <div class="mcard mcard-sage">
+        <div class="mcard-icon"><i data-lucide="pill"></i></div>
+        <h3>Generic Advice Falls Short</h3>
+        <p>Most supplement guides ignore interactions with medications, pre-existing conditions, and individual nutritional gaps.</p>
+      </div>
+
+      <div class="mcard mcard-lav">
+        <div class="mcard-icon"><i data-lucide="network"></i></div>
+        <h3>Health is Interconnected</h3>
+        <p>Symptoms, nutrients, and conditions form a complex web. A knowledge graph lets us reason across these relationships.</p>
+      </div>
+
+      <div class="mcard mcard-peach">
+        <div class="mcard-icon"><i data-lucide="bot"></i></div>
+        <h3>AI That Understands Context</h3>
+        <p>Agentic AI workflows can plan, verify safety, and synthesize a holistic answer - not just pattern-match keywords.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="data">
+
+    <p class="section-label">Data &amp; Knowledge Graph</p>
+    <h2 class="section-title">Building a map of human health</h2>
+    <div class="section-divider"></div>
+
+    <p class="body-text">
+      At the core of our system is a Neo4j knowledge graph that encodes relationships
+      between supplements, nutrients, health conditions, symptoms, and medications.
+      Rather than querying a flat table, our agents traverse this graph to understand
+      <em>why</em> a recommendation makes sense.
+    </p>
+
+    <div class="kg-grid">
+
+      <div class="kg-card kg-card-sage">
+
+        <div class="kg-card-header">
+          <i data-lucide="folder-open"></i>
+          <h3>Data Sources</h3>
+        </div>
+        <ul>
+          <li>Supplement ingredient databases</li>
+          <li>Clinical nutrition literature</li>
+          <li>Drug–nutrient interaction records</li>
+          <li>User health profile inputs</li>
+        </ul>
+      </div>
+
+      <div class="kg-card kg-card-lav">
+        <div class="kg-card-header">
+          <i data-lucide="circle-dot"></i>
+          <h3>Graph Entities</h3>
+        </div>
+        <ul>
+          <li><strong>Nodes:</strong> Supplements, nutrients, conditions, symptoms, medications</li>
+          <li><strong>Edges:</strong> treats, interacts_with, deficiency_of, contraindicated</li>
+        </ul>
+
+        <button class="kg-view-btn" onclick="openModal()">
+          <i data-lucide="share-2"></i>
+          View Knowledge Graph Structure
+        </button>
+      </div>
+
+      <div class="kg-card kg-card-peach">
+        <div class="kg-card-header">
+          <i data-lucide="git-branch"></i>
+          <h3>Why a Knowledge Graph?</h3>
+        </div>
+        <p>Relational databases can't easily express multi-hop relationships. A graph lets us ask: <em>"Which supplements help with heart health, are safe with metformin, and don't overlap with this person's current vegan diet?"</em></p>
+      </div>
+
+      <div class="kg-card kg-card-sage-light">
+        <div class="kg-card-header">
+          <i data-lucide="database"></i>
+          <h3>Technology</h3>
+        </div>
+        <p>We use <strong>Neo4j</strong> as our graph database, with <strong>Cypher</strong> queries executed dynamically by agents during a live recommendation session.</p>
+      </div>
+
+    </div>
+
+    <details class="arch-details">
+      <summary class="arch-details-summary">
+        <i data-lucide="lightbulb"></i>
+        <span>Example Multi-Hop Reasoning</span>
+        <i data-lucide="chevron-down" class="arch-details-chevron"></i>
+      </summary>
+      <div class="arch-details-body">
+        <p class="arch-details-intro">
+          A user on Warfarin asks about heart health supplements. The graph surfaces CoQ10 and fish oil as common recommendations, immediately flags dangerous interactions with Warfarin through multi-hop paths, and suggests flaxseed oil as the safest alternative - all traced through explicit graph relationships. 
+        </p>
+        <div class="arch-details-group">
+          <ul>
+            Heart disease → commonly treated by → Fish oil → contains → Icosapent → interacts with → Warfarin → not safe to recommend
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- ============================================
+       KNOWLEDGE GRAPH MODAL
+  ============================================ -->
+<div id="kg-modal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal-box">
+
+      <button class="modal-close" onclick="closeModal()">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal-svg-wrap">
+
+        <svg viewBox="0 0 700 820" xmlns="http://www.w3.org/2000/svg" class="kg-svg">
+          <defs>
+            <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+              <path d="M0,0 L0,7 L7,3.5 z" fill="#999"/>
+            </marker>
+
+            <path id="tp-brand"   d="M 222,158 L 290,280"/>
+            <path id="tp-food"    d="M 310,282 L 375,128"/>
+            <path id="tp-synonym" d="M 338,295 L 512,212"/>
+            <path id="tp-salt"    d="M 143,296 L 283,308"/>
+            <path id="tp-belongs" d="M 258,420 L 292,322"/>
+            <path id="tp-equiv"   d="M 148,394 L 265,320"/>
+            <path id="tp-medcontains" d="M 326,350 L 356,502"/>
+            <path id="tp-nutrient" d="M 342,343 L 472,442"/>
+            <path id="tp-deficient" d="M 530,473 L 585,510"/>
+          </defs>
+
+          <!-- ── EDGES (drawn first, nodes on top) ── -->
+
+          <!-- BrandName → Drug: CONTAINS_DRUG -->
+          <line x1="222" y1="158" x2="282" y2="272" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- Drug → FoodInteraction: HAS_FOOD_INTERACTION -->
+          <line x1="310" y1="282" x2="374" y2="138" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- Drug → Synonym: KNOWN_AS -->
+          <line x1="338" y1="296" x2="511" y2="220" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- Drug → Salt: HAS_SALT_FORM -->
+          <line x1="283" y1="308" x2="144" y2="296" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- Drug self-loop: INTERACTS_WITH -->
+          <path d="M 345,320 C 430,290 450,380 350,335" fill="none" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line x1="292" y1="322" x2="258" y2="430" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- ActiveIngredient → Drug: EQUIVALENT_TO -->
+          <line x1="148" y1="394" x2="265" y2="320" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- Medication → Drug: MEDICATION_CONTAINS_DRUG -->
+          <line x1="356" y1="502" x2="326" y2="350" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- Drug → Nutrient: INTERACTS_WITH_NUTRIENT -->
+          <line x1="342" y1="345" x2="460" y2="435" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- DietaryRestriction → Nutrient: DEFICIENT_IN -->
+          <line x1="590" y1="515" x2="523" y2="470" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <!-- ── EDGE LABELS via textPath ── -->
+          <text class="edge-label" dy="-3"><textPath href="#tp-brand"   startOffset="10%">CONTAINS_DRUG</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-food"    startOffset="10%">HAS_FOOD_INTERACTION</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-synonym" startOffset="10%">KNOWN_AS</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-salt"    startOffset="10%">HAS_SALT_FORM</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-belongs"     startOffset="10%">BELONGS_TO</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-equiv"       startOffset="10%">EQUIVALENT_TO</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-medcontains" startOffset="10%">MED_CONTAINS_DRUG</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-nutrient"    startOffset="10%">INTERACTS_WITH_NUTRIENT</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-deficient"   startOffset="10%">DEFICIENT_IN</textPath></text>
+          <text x="410" y="310" class="edge-label" style="text-anchor:middle">INTERACTS_WITH</text>
+
+          <!-- ── NODES ── -->
+
+          <!-- Drug — center, sage green, large -->
+          <circle cx="310" cy="310" r="38" fill="#e8f0e9" stroke="#7a9e7e" stroke-width="2.5"/>
+          <text x="310" y="315" class="node-label">Drug</text>
+
+          <!-- BrandName — upper-left, lavender -->
+          <circle cx="205" cy="125" r="36" fill="#ede8f5" stroke="#c4b5d4" stroke-width="2"/>
+          <text x="205" y="120" class="node-label">Brand</text>
+          <text x="205" y="136" class="node-label">Name</text>
+
+          <!-- FoodInteraction — upper-right, peach -->
+          <circle cx="385" cy="98" r="36" fill="#faeee6" stroke="#e8b89a" stroke-width="2"/>
+          <text x="385" y="93" class="node-label">FoodInt-</text>
+          <text x="385" y="109" class="node-label">eraction</text>
+
+          <!-- Synonym — right, neutral warm -->
+          <circle cx="545" cy="198" r="36" fill="#fdf4ec" stroke="#d4a97a" stroke-width="2"/>
+          <text x="545" y="193" class="node-label">Syno-</text>
+          <text x="545" y="209" class="node-label">nym</text>
+
+          <!-- Salt — left, neutral blue-ish -->
+          <circle cx="105" cy="292" r="36" fill="#e8f0f8" stroke="#9ab8d4" stroke-width="2"/>
+          <text x="105" y="297" class="node-label">Salt</text>
+
+          <!-- Category — lower-left, peach -->
+          <circle cx="250" cy="468" r="36" fill="#faeee6" stroke="#e8b89a" stroke-width="2"/>
+          <text x="250" y="472" class="node-label">Category</text>
+
+          <!-- ActiveIngredient — lower-left, lavender -->
+          <circle cx="117" cy="415" r="36" fill="#ede8f5" stroke="#c4b5d4" stroke-width="2"/>
+          <text x="117" y="410" class="node-label">Active</text>
+          <text x="117" y="426" class="node-label">Ingredient</text>
+
+          <!-- Medication — lower-right, lavender -->
+          <circle cx="366" cy="508" r="36" fill="#ede8f5" stroke="#c4b5d4" stroke-width="2"/>
+          <text x="366" y="504" class="node-label">Medica-</text>
+          <text x="366" y="520" class="node-label">tion</text>
+
+          <!-- Nutrient — far right, peach-pink -->
+          <circle cx="487" cy="463" r="36" fill="#faeee6" stroke="#e8b89a" stroke-width="2"/>
+          <text x="487" y="463" class="node-label">Nutrient</text>
+
+          <!-- DietaryRestriction — right of Nutrient, peach -->
+          <circle cx="630" cy="520" r="36" fill="#faeee6" stroke="#e8b89a" stroke-width="2"/>
+          <text x="630" y="512" class="node-label">Dietary</text>
+          <text x="630" y="528" class="node-label">Restrict.</text>
+
+          <!-- Supplement -->
+          <circle cx="310" cy="640" r="38" fill="#e8f0e9" stroke="#7a9e7e" stroke-width="2.5"/>
+          <text x="310" y="645" class="node-label">Supplement</text>
+
+        </svg>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('kg-modal').classList.add('modal-open');
+      document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeModal() {
+      document.getElementById('kg-modal').classList.remove('modal-open');
+      document.body.style.overflow = ''; 
+    }
+
+    function closeModalOnOverlay(event) {
+      if (event.target === document.getElementById('kg-modal')) {
+        closeModal();
+      }
+    }
+  </script>
+
+  <!-- ============================================
+       SYSTEM ARCHITECTURE SECTION
+  ============================================ -->
+  <section id="architecture">
+
+    <p class="section-label">System Architecture</p>
+    <h2 class="section-title">How the agents work together</h2>
+    <div class="section-divider"></div>
+
+    <p class="body-text">
+      Our system uses a LangGraph multi-agent workflow where a central orchestrator
+      decomposes your health query, dispatches specialized agents in parallel, and
+      synthesizes their findings into a single personalized response. Built with <strong>LangGraph</strong> for stateful agent orchestration,
+          <strong>Claude</strong> as the underlying LLM for each agent, and
+          <strong>Neo4j Cypher</strong> queries for real-time graph traversal during
+          each recommendation session.
+    </p>
+
+    <div class="arch-pipeline">
+      <svg viewBox="0 0 700 465" xmlns="http://www.w3.org/2000/svg" class="arch-svg">
+        <defs>
+          <marker id="arr-solid" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L7,3.5 z" fill="#999"/>
+          </marker>
+          <marker id="arr-dash" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L7,3.5 z" fill="#e8b89a"/>
+          </marker>
+          <marker id="arr-lav" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L7,3.5 z" fill="#b8a8d8"/>
+          </marker>
+          <marker id="arr-sage" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L7,3.5 z" fill="#7a9e7e"/>
+          </marker>
+        </defs>
+
+        <!-- straight: __start__ → entity_extractor -->
+        <line x1="350" y1="44" x2="350" y2="72" stroke="#999" stroke-width="1.5" marker-end="url(#arr-solid)"/>
+        <!-- straight: entity_extractor → entity_normalizer -->
+        <line x1="350" y1="114" x2="350" y2="142" stroke="#7a9e7e" stroke-width="1.5" marker-end="url(#arr-sage)"/>
+        <!-- straight: entity_normalizer → supervisor -->
+        <line x1="350" y1="184" x2="350" y2="212" stroke="#7a9e7e" stroke-width="1.5" marker-end="url(#arr-sage)"/>
+
+        <!-- supervisor fan-out to 4 agents -->
+        <line x1="350" y1="254" x2="88"  y2="314" stroke="#b8a8d8"    stroke-width="1.5" marker-end="url(#arr-lav)"/>
+        <line x1="350" y1="254" x2="258" y2="314" stroke="#b8a8d8"    stroke-width="1.5" marker-end="url(#arr-lav)"/>
+        <line x1="350" y1="254" x2="452" y2="314" stroke="#b8a8d8"    stroke-width="1.5" marker-end="url(#arr-lav)"/>
+        <line x1="350" y1="254" x2="618" y2="314" stroke="#b8a8d8" stroke-width="1.5" marker-end="url(#arr-lav)"/>
+
+        <!-- dashed feedback: safety_check → supervisor -->
+        <path d="M 88,314 C 40,265 160,228 256,235"
+              fill="none" stroke="#e8b89a" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr-dash)"/>
+        <!-- dashed feedback: recommendation → supervisor -->
+        <path d="M 248,324 C 360,290 330,275 282,256"
+              fill="none" stroke="#e8b89a" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr-dash)"/>
+        <!-- dashed feedback: deficiency_check → supervisor -->
+        <path d="M 452,314 C 480,272 445,275 420,254"
+              fill="none" stroke="#e8b89a" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arr-dash)"/>
+
+        <!-- synthesis → __end__ -->
+        <line x1="618" y1="356" x2="618" y2="426" stroke="#b8a8d8" stroke-width="1.5" marker-end="url(#arr-lav)"/>
+
+        <!-- __start__ pill -->
+        <rect x="286" y="10"  width="128" height="34" rx="17" fill="#f5f2ee" stroke="#ccc5bb" stroke-width="1.5"/>
+        <text x="350" y="27" class="arch-svg-label">__start__</text>
+
+        <!-- entity_extractor -->
+        <rect x="240" y="72"  width="220" height="42" rx="6" fill="#e8f0e9" stroke="#7a9e7e" stroke-width="1.5"/>
+        <text x="350" y="93" class="arch-svg-label">entity_extractor</text>
+
+        <!-- entity_normalizer -->
+        <rect x="240" y="142" width="220" height="42" rx="6" fill="#e8f0e9" stroke="#7a9e7e" stroke-width="1.5"/>
+        <text x="350" y="163" class="arch-svg-label">entity_normalizer</text>
+
+        <!-- supervisor -->
+        <rect x="258" y="212" width="184" height="42" rx="6" fill="#c9c3e0" stroke="#8f85bb" stroke-width="1.5"/>
+        <text x="350" y="233" class="arch-svg-label">supervisor</text>
+
+        <!-- safety_check -->
+        <rect x="10"  y="314" width="156" height="42" rx="6" fill="#faeee6" stroke="#e8b89a" stroke-width="1.5"/>
+        <text x="88"  y="335" class="arch-svg-label">safety_check</text>
+
+        <!-- recommendation -->
+        <rect x="180" y="314" width="156" height="42" rx="6" fill="#faeee6" stroke="#e8b89a" stroke-width="1.5"/>
+        <text x="258" y="335" class="arch-svg-label">recommendation</text>
+
+        <!-- deficiency_check -->
+        <rect x="374" y="314" width="156" height="42" rx="6" fill="#faeee6" stroke="#e8b89a" stroke-width="1.5"/>
+        <text x="452" y="335" class="arch-svg-label">deficiency_check</text>
+
+        <!-- synthesis (lavender) -->
+        <rect x="540" y="314" width="156" height="42" rx="6" fill="#ede8f5" stroke="#c4b5d4" stroke-width="1.5"/>
+        <text x="618" y="335" class="arch-svg-label">synthesis</text>
+
+        <!-- __end__ pill -->
+        <rect x="554" y="426" width="128" height="34" rx="17" fill="#f5f2ee" stroke="#ccc5bb" stroke-width="1.5"/>
+        <text x="618" y="443" class="arch-svg-label">__end__</text>
+
+      </svg>
+    </div>
+
+    <details class="arch-details">
+      <summary class="arch-details-summary">
+        <i data-lucide="zap"></i>
+        <span>Technical Details</span>
+        <i data-lucide="chevron-down" class="arch-details-chevron"></i>
+      </summary>
+      <div class="arch-details-body">
+
+        <div class="arch-details-group">
+          <h4>Linear Pre-Processing Pipeline</h4>
+          <ul>
+            <li><strong>entity_extractor.py - Hybrid</strong> LLM parses unstructured natural-language user queries; structured profile inputs are parsed via deterministic rules. Extracts medications, supplements, conditions, and dietary restrictions.</li>
+            <li><strong>entity_normalizer.py - Agent</strong> LLM reads <code>schema.py</code> and dynamically generates Cypher queries to map extracted entities to database IDs. Produces normalized <code>medications_list</code>, <code>supplements_list</code>, and <code>dietary_restrictions_list</code>.</li>
+          </ul>
+        </div>
+
+        <div class="arch-details-group">
+          <h4>Dynamic Routing Loop</h4>
+          <ul>
+            <li><strong>supervisor.py - Agent</strong> Reads the full shared state (user query, profile, and completed specialist outputs). Reasons over question intent (safety, deficiency, recommendation, or combinations), determines what remains pending, and dynamically routes execution. Re-invoked after each specialist to enable iterative, state-aware control flow.</li>
+            <li><strong>safety_check.py - Tool</strong> Executes hardcoded Cypher across four interaction pathways. Detects supplement–medication risks and returns severity with supporting evidence.</li>
+            <li><strong>deficiency_check.py - Tool</strong> Executes hardcoded Cypher queries over diet-, supplement-, and medication-based pathways. Identifies nutrient deficiency risks from the user profile.</li>
+            <li><strong>recommendation.py - Tool</strong> Executes hardcoded Cypher to retrieve supplements associated with user conditions. Returns a ranked list with per-supplement safety verdicts.</li>
+          </ul>
+        </div>
+
+        <div class="arch-details-group">
+          <h4>Final Output</h4>
+          <ul>
+            <li><strong>synthesis_agent.py - Agent</strong> Aggregates all findings from shared state. Generates a personalized, evidence-based response with confidence-adjusted language and explicit knowledge-graph justifications.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  </section>
+
+  <!-- LEARN MORE -->
+  <section id="learn-more">
+    <p class="section-label">Resources</p>
+    <h2 class="section-title">Learn More</h2>
+    <div class="section-divider"></div>
+    <div class="learn-grid">
+      <a href="#" class="learn-card learn-card-sage">
+        <div class="learn-icon"><i data-lucide="play"></i></div>
+        <div class="learn-label">Demo</div>
+      </a>
+      <a href="#" class="learn-card learn-card-lav">
+        <div class="learn-icon"><i data-lucide="github"></i></div>
+        <div class="learn-label">Project Repository</div>
+      </a>
+      <a href="#" class="learn-card learn-card-peach">
+        <div class="learn-icon"><i data-lucide="file-text"></i></div>
+        <div class="learn-label">Report</div>
+      </a>
+    </div>
+  </section>
+
+  <script>lucide.createIcons();</script>
+
+</body>
+</html>
