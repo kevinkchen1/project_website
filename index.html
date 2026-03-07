@@ -16,6 +16,7 @@
       <li><a href="#motivation">Motivation</a></li>
       <li><a href="#data">Data</a></li>
       <li><a href="#architecture">System</a></li>
+      <li><a href="#evaluation">Results</a></li>
       <li><a href="#learn-more">Learn More</a></li>
     </ul>
   </nav>
@@ -442,6 +443,120 @@
 
   </section>
 
+<!-- ============================================
+       EVALUATION SECTION
+  ============================================ -->
+  <section id="evaluation">
+
+    <p class="section-label">Evaluation</p>
+    <h2 class="section-title">How well does it actually work?</h2>
+    <div class="section-divider"></div>
+
+    <p class="body-text">
+      We tested the system with <strong>62 golden-set test cases</strong> — real health
+      scenarios with known correct answers verified against our knowledge graph. Every
+      test ran through the full multi-agent pipeline and was manually rated as
+      <em>Correct</em>, <em>Partially Correct</em>, or <em>Incorrect</em>.
+    </p>
+
+    <div class="eval-stats">
+      <div class="eval-stat">
+        <span class="eval-stat-number">81%</span>
+        <span class="eval-stat-label">Overall Accuracy</span>
+      </div>
+      <div class="eval-stat">
+        <span class="eval-stat-number">0</span>
+        <span class="eval-stat-label">Unsafe Responses</span>
+      </div>
+      <div class="eval-stat">
+        <span class="eval-stat-number">100%</span>
+        <span class="eval-stat-label">Safety Recall</span>
+      </div>
+      <div class="eval-stat">
+        <span class="eval-stat-number">50/62</span>
+        <span class="eval-stat-label">Correct Responses</span>
+      </div>
+    </div>
+
+    <div class="eval-table-wrap">
+      <table class="eval-table">
+        <thead>
+          <tr>
+            <th>Test Suite</th>
+            <th>Tests</th>
+            <th>Correct</th>
+            <th>Partial</th>
+            <th>Accuracy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Safety Check</td>
+            <td>22</td>
+            <td>17</td>
+            <td>5</td>
+            <td>77%</td>
+          </tr>
+          <tr>
+            <td>Deficiency Check</td>
+            <td>12</td>
+            <td>12</td>
+            <td>0</td>
+            <td>100%</td>
+          </tr>
+          <tr>
+            <td>Recommendation</td>
+            <td>15</td>
+            <td>10</td>
+            <td>5</td>
+            <td>67%</td>
+          </tr>
+          <tr>
+            <td>Multi-Agent (E2E)</td>
+            <td>13</td>
+            <td>11</td>
+            <td>2</td>
+            <td>85%</td>
+          </tr>
+          <tr class="eval-table-total">
+            <td><strong>Overall</strong></td>
+            <td><strong>62</strong></td>
+            <td><strong>50</strong></td>
+            <td><strong>12</strong></td>
+            <td><strong>81%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="body-text">
+      The system is strongest where it matters most — <strong>safety</strong>. It detected
+      every known supplement-medication conflict including Fish Oil with Warfarin,
+      CoQ10 with Metformin, and Aloe with Warfarin. Deficiency detection works across
+      all three pathways (diet, medication, supplement) and correctly identifies compounded
+      risks when multiple sources affect the same nutrient.
+    </p>
+
+    <p class="body-text">
+      All 12 partially correct results trace to knowledge graph coverage gaps for common
+      conditions (joint pain, fatigue, headaches) or data quality issues —
+      <strong>not to the system giving dangerous advice</strong>.
+    </p>
+
+    <div class="motivation-cards">
+      <div class="mcard mcard-sage">
+        <div class="mcard-icon"><i data-lucide="shield-check"></i></div>
+        <h3>Best Demo Result</h3>
+        <p>A user asks about constipation supplements while taking Warfarin. The system
+        recommends Aloe and Flaxseed, then automatically safety-checks both —
+        catching that Aloe causes blood coagulation conflicts.
+        Final answer: <em>"Avoid Aloe, use Flaxseed."</em></p>
+      </div>
+    </div>
+
+  </section>
+
+  
   <!-- LEARN MORE -->
   <section id="learn-more">
     <p class="section-label">Resources</p>
