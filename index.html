@@ -459,93 +459,83 @@
       <em>Correct</em>, <em>Partially Correct</em>, or <em>Incorrect</em>.
     </p>
 
-    <div class="eval-stats">
-      <div class="eval-stat">
-        <span class="eval-stat-number">81%</span>
-        <span class="eval-stat-label">Overall Accuracy</span>
+    <div style="display:flex; justify-content:center; gap:3.5rem; flex-wrap:wrap; margin:2.5rem 0;">
+      <div style="text-align:center;">
+        <span style="display:block; font-family:'Lora',serif; font-size:2.8rem; font-weight:600; color:#7a9e7e;">81%</span>
+        <span style="display:block; font-size:0.85rem; color:#5f5f5f; margin-top:0.2rem;">Overall Accuracy</span>
       </div>
-      <div class="eval-stat">
-        <span class="eval-stat-number">0</span>
-        <span class="eval-stat-label">Unsafe Responses</span>
+      <div style="text-align:center;">
+        <span style="display:block; font-family:'Lora',serif; font-size:2.8rem; font-weight:600; color:#7a9e7e;">0</span>
+        <span style="display:block; font-size:0.85rem; color:#5f5f5f; margin-top:0.2rem;">Unsafe Responses</span>
       </div>
-      <div class="eval-stat">
-        <span class="eval-stat-number">100%</span>
-        <span class="eval-stat-label">Safety Recall</span>
+      <div style="text-align:center;">
+        <span style="display:block; font-family:'Lora',serif; font-size:2.8rem; font-weight:600; color:#7a9e7e;">100%</span>
+        <span style="display:block; font-size:0.85rem; color:#5f5f5f; margin-top:0.2rem;">Safety Recall</span>
       </div>
-      <div class="eval-stat">
-        <span class="eval-stat-number">50/62</span>
-        <span class="eval-stat-label">Correct Responses</span>
+      <div style="text-align:center;">
+        <span style="display:block; font-family:'Lora',serif; font-size:2.8rem; font-weight:600; color:#7a9e7e;">50/62</span>
+        <span style="display:block; font-size:0.85rem; color:#5f5f5f; margin-top:0.2rem;">Correct Responses</span>
       </div>
     </div>
 
-    <div class="eval-table-wrap">
-      <table class="eval-table">
+    <div style="max-width:600px; margin:2rem auto;">
+      <table style="width:100%; border-collapse:collapse; font-family:'Nunito',sans-serif; font-size:0.92rem;">
         <thead>
           <tr>
-            <th>Test Suite</th>
-            <th>Tests</th>
-            <th>Correct</th>
-            <th>Partial</th>
-            <th>Accuracy</th>
+            <th style="text-align:left; padding:0.6rem 1rem; border-bottom:2px solid #e2dbd0; color:#5f5f5f; font-weight:600; font-size:0.82rem; letter-spacing:0.04em;">Test Suite</th>
+            <th style="text-align:center; padding:0.6rem 0.8rem; border-bottom:2px solid #e2dbd0; color:#5f5f5f; font-weight:600; font-size:0.82rem;">Tests</th>
+            <th style="text-align:center; padding:0.6rem 0.8rem; border-bottom:2px solid #e2dbd0; color:#5f5f5f; font-weight:600; font-size:0.82rem;">Correct</th>
+            <th style="text-align:center; padding:0.6rem 0.8rem; border-bottom:2px solid #e2dbd0; color:#5f5f5f; font-weight:600; font-size:0.82rem;">Partial</th>
+            <th style="text-align:center; padding:0.6rem 0.8rem; border-bottom:2px solid #e2dbd0; color:#5f5f5f; font-weight:600; font-size:0.82rem;">Accuracy</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Safety Check</td>
-            <td>22</td>
-            <td>17</td>
-            <td>5</td>
-            <td>77%</td>
+            <td style="padding:0.55rem 1rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">Safety Check</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">22</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">17</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">5</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">77%</td>
           </tr>
           <tr>
-            <td>Deficiency Check</td>
-            <td>12</td>
-            <td>12</td>
-            <td>0</td>
-            <td>100%</td>
+            <td style="padding:0.55rem 1rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">Deficiency Check</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">12</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">12</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">0</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">100%</td>
           </tr>
           <tr>
-            <td>Recommendation</td>
-            <td>15</td>
-            <td>10</td>
-            <td>5</td>
-            <td>67%</td>
+            <td style="padding:0.55rem 1rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">Recommendation</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">15</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">10</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">5</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">67%</td>
           </tr>
           <tr>
-            <td>Multi-Agent (E2E)</td>
-            <td>13</td>
-            <td>11</td>
-            <td>2</td>
-            <td>85%</td>
+            <td style="padding:0.55rem 1rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">Multi-Agent (E2E)</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">13</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">11</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">2</td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-bottom:1px solid #e2dbd0; color:#2d2d2d;">85%</td>
           </tr>
-          <tr class="eval-table-total">
-            <td><strong>Overall</strong></td>
-            <td><strong>62</strong></td>
-            <td><strong>50</strong></td>
-            <td><strong>12</strong></td>
-            <td><strong>81%</strong></td>
+          <tr>
+            <td style="padding:0.55rem 1rem; border-top:2px solid #5f5f5f; color:#2d2d2d;"><strong>Overall</strong></td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-top:2px solid #5f5f5f; color:#2d2d2d;"><strong>62</strong></td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-top:2px solid #5f5f5f; color:#2d2d2d;"><strong>50</strong></td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-top:2px solid #5f5f5f; color:#2d2d2d;"><strong>12</strong></td>
+            <td style="text-align:center; padding:0.55rem 0.8rem; border-top:2px solid #5f5f5f; color:#2d2d2d;"><strong>81%</strong></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p class="body-text">
+    <p class="body-text" style="margin-top:2rem;">
       The system is strongest where it matters most — <strong>safety</strong>. It detected
       every known supplement-medication conflict including Fish Oil with Warfarin,
       CoQ10 with Metformin, and Aloe with Warfarin. All 12 partially correct results
-      trace to knowledge graph coverage gaps — <strong>not to unsafe outputs</strong>.
+      trace to knowledge graph coverage gaps or data quality issues —
+      <strong>not to unsafe outputs</strong>.
     </p>
-
-    <div class="motivation-cards">
-      <div class="mcard mcard-sage">
-        <div class="mcard-icon"><i data-lucide="shield-check"></i></div>
-        <h3>Best Demo Result</h3>
-        <p>A user asks about constipation supplements while taking Warfarin. The system
-        recommends Aloe and Flaxseed, then automatically safety-checks both —
-        catching that Aloe causes blood coagulation conflicts.
-        Final answer: <em>"Avoid Aloe, use Flaxseed."</em></p>
-      </div>
-    </div>
 
   </section>
 
