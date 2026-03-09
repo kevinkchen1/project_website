@@ -3,6 +3,7 @@
    ============================================ */
 :root {
   --cream:          #faf7f2;  
+  --gray:           #a8a8a8;  
   --warm-white:     #ffffff;  
   --sage:           #7a9e7e;  
   --sage-light:     #b8d4ba; 
@@ -819,6 +820,162 @@ details[open] .arch-details-summary {
   color: var(--text-dark);
   text-align: center;
 }
+
+/* ============================================
+   EVALUATION SECTION
+============================================ */
+
+/* 4-column stats grid */
+.eval-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 700px) {
+  .eval-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+.eval-stat {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 16px;
+  padding: 1.4rem 1.2rem;
+  text-align: center;
+}
+
+.eval-stat-sage  { border-top-color: var(--sage); }
+.eval-stat-peach { border-top-color: var(--peach); }
+.eval-stat-lav   { border-top-color: var(--lavender); }
+
+.eval-stat-number {
+  font-family: 'Lora', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--sage);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.eval-stat-sage  .eval-stat-number { color: var(--sage); }
+.eval-stat-peach .eval-stat-number { color: var(--peach); }
+.eval-stat-lav   .eval-stat-number { color: var(--lavender); }
+
+.eval-stat-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-mid);
+  line-height: 1.4;
+}
+
+/* Table */
+.eval-table-wrap {
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.eval-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+}
+
+.eval-table thead {
+  background: var(--sage-pale);
+}
+
+.eval-table th {
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.eval-table td {
+  padding: 0.9rem 1.2rem;
+  color: var(--text-mid);
+  border-top: 1px solid var(--border);
+}
+
+.eval-table tbody tr:hover {
+  background: var(--warm-white);
+}
+
+/* Accuracy badge */
+.eval-acc {
+  font-weight: 700;
+  color: var(--sage);
+}
+
+/* ============================================
+   LIMITATIONS & FUTURE WORK SECTION
+============================================ */
+
+.lim-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 700px) {
+  .lim-grid { grid-template-columns: 1fr; }
+}
+
+.lim-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border);
+  border-radius: 16px;
+  padding: 1.8rem;
+}
+
+.lim-card-peach { border-top-color: var(--peach); }
+.lim-card-lav   { border-top-color: var(--lavender); }
+.lim-card-sage   { border-top-color: var(--sage); }
+
+.lim-card-title {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 1.2rem 0;
+}
+
+.lim-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.lim-list li {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  padding-left: 0.8rem;
+  /* border-left: 2px solid var(--border); */
+}
+
+.lim-term {
+  font-weight: 700;
+  margin-right: 0.2rem;
+}
+
+.lim-term-peach { color: var(--peach); }
+.lim-term-lav   { color: var(--lavender); }
+.lim-term-sage   { color: var(--sage); }
 
 /* ============================================
    ANIMATIONS

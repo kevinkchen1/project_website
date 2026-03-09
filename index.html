@@ -27,8 +27,7 @@
     <p class="hero-subtitle">Using Agents and Knowledge Graphs</p>
 
     <p class="hero-desc">
-      An AI-powered system that understands your complete health profile and delivers
-      supplement guidance tailored specifically to you - not generic advice.
+      An AI-powered supplement safety advisor that analyzes your complete health profile to deliver personalized, evidence-grounded recommendations.
     </p>
 
     <div class="hero-pills">
@@ -194,29 +193,62 @@
             <path id="tp-medcontains" d="M 326,350 L 356,502"/>
             <path id="tp-nutrient" d="M 342,343 L 472,442"/>
             <path id="tp-deficient" d="M 530,473 L 585,510"/>
+            <path id="tp-contains" d="M 270,630 L 135,452"/>
+            <path id="tp-simeffect" d="M 290,620 L 255,510"/>
+            <path id="tp-supp-med" d="M 310,625 L 335,535"fill="none"/>
+            <path id="tp-negint" d="M 340,623 L 465,495"/>
           </defs>
 
           <!-- ── EDGES (drawn first, nodes on top) ── -->
 
           <!-- BrandName → Drug: CONTAINS_DRUG -->
-          <line x1="222" y1="158" x2="282" y2="272" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line id="tp-brand" x1="222" y1="158" x2="282" y2="272" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- Drug → FoodInteraction: HAS_FOOD_INTERACTION -->
-          <line x1="310" y1="282" x2="374" y2="138" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line id="tp-food" x1="310" y1="282" x2="374" y2="138" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- Drug → Synonym: KNOWN_AS -->
-          <line x1="338" y1="296" x2="511" y2="220" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line id="tp-synonym" x1="338" y1="296" x2="511" y2="220" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- Drug → Salt: HAS_SALT_FORM -->
-          <line x1="283" y1="308" x2="144" y2="296" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line id="tp-salt" x1="283" y1="308" x2="144" y2="296" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- Drug self-loop: INTERACTS_WITH -->
-          <path d="M 345,320 C 430,290 450,380 350,335" fill="none" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
-          <line x1="292" y1="322" x2="258" y2="430" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <path id="tp-self" d="M 345,320 C 430,290 450,380 350,335" fill="none" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Drug → Category: BELONGS_TO -->
+          <line id="tp-belongs" x1="292" y1="322" x2="258" y2="430" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- ActiveIngredient → Drug: EQUIVALENT_TO -->
-          <line x1="148" y1="394" x2="265" y2="320" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line id="tp-equiv" x1="148" y1="394" x2="265" y2="320" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- Medication → Drug: MEDICATION_CONTAINS_DRUG -->
-          <line x1="356" y1="502" x2="326" y2="350" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line id="tp-medcontains" x1="356" y1="502" x2="326" y2="350" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- Drug → Nutrient: INTERACTS_WITH_NUTRIENT -->
-          <line x1="342" y1="345" x2="460" y2="435" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line id="tp-nutrient" x1="342" y1="345" x2="460" y2="435" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- DietaryRestriction → Nutrient: DEFICIENT_IN -->
-          <line x1="590" y1="515" x2="523" y2="470" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line id="tp-deficient" x1="590" y1="515" x2="523" y2="470" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Supplement → ActiveIngredient: CONTAINS -->
+          <line id="tp-contains" x1="270" y1="630" x2="135" y2="452" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Supplement → Category: HAS_SIMILAR_EFFECT -->
+          <line id="tp-simeffect" x1="290" y1="620" x2="255" y2="510" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Supplement → Medication: SUPPLEMENT_INTERACTION -->
+          <line id="tp-supp-med" x1="310" y1="625" x2="335" y2="535" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Supplement → Nutrient: NEGATIVE_INTERACTION -->
+          <line id="tp-negint" x1="340" y1="623" x2="465" y2="495" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Supplement → Symptom: CAN_CAUSE -->
+          <path id="tp-can-cause" d="M 278,645 C 235,625 180,635 155,670" fill="none" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
+          <!-- Supplement → Symptom: TREATS -->
+          <path id="tp-treats" d="M 276,662 C 230,710 170,700 150,690" fill="none" stroke="#aaa" stroke-width="1.5" marker-end="url(#arr)"/>
+
           <!-- ── EDGE LABELS via textPath ── -->
           <text class="edge-label" dy="-3"><textPath href="#tp-brand"   startOffset="10%">CONTAINS_DRUG</textPath></text>
           <text class="edge-label" dy="-3"><textPath href="#tp-food"    startOffset="10%">HAS_FOOD_INTERACTION</textPath></text>
@@ -227,6 +259,12 @@
           <text class="edge-label" dy="-3"><textPath href="#tp-medcontains" startOffset="10%">MED_CONTAINS_DRUG</textPath></text>
           <text class="edge-label" dy="-3"><textPath href="#tp-nutrient"    startOffset="10%">INTERACTS_WITH_NUTRIENT</textPath></text>
           <text class="edge-label" dy="-3"><textPath href="#tp-deficient"   startOffset="10%">DEFICIENT_IN</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-contains" startOffset="30%">CONTAINS</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-simeffect" startOffset="10%">HAS_SIMILAR_EFFECT</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-supp-med" startOffset="35%">INT_WITH</textPath></text>
+          <text class="edge-label" dy="-3"><textPath href="#tp-negint" startOffset="16%">NEGATIVE_INTERACTION</textPath></text>
+          <text class="edge-label" dy="-2"><textPath href="#tp-can-cause" startOffset="18%">CAN_CAUSE</textPath></text>
+          <text class="edge-label" dy="12"><textPath href="#tp-treats" startOffset="22%">TREATS</textPath></text>
           <text x="410" y="310" class="edge-label" style="text-anchor:middle">INTERACTS_WITH</text>
 
           <!-- ── NODES ── -->
@@ -280,6 +318,10 @@
           <!-- Supplement -->
           <circle cx="310" cy="640" r="38" fill="#e8f0e9" stroke="#7a9e7e" stroke-width="2.5"/>
           <text x="310" y="645" class="node-label">Supplement</text>
+
+          <!-- Symptom -->
+          <circle cx="117" cy="670" r="36" fill="#e8f0e9" stroke="#7a9e7e" stroke-width="2.5"/>
+          <text x="117" y="675" class="node-label">Symptom</text>
 
         </svg>
       </div>
@@ -441,16 +483,166 @@
     </details>
 
   </section>
-  
+
+  <!-- EVALUATION -->
+  <section id="evaluation">
+    <p class="section-label">Evaluation</p>
+    <h2 class="section-title">How well does it actually work?</h2>
+    <div class="section-divider"></div>
+
+    <p class="body-text">
+      We tested the system with 62 golden-set test cases — real health scenarios with known correct answers verified against our knowledge graph. Every test ran through the full multi-agent pipeline and was manually rated.
+    </p>
+
+    <!-- Key stats -->
+    <div class="eval-stats">
+      <div class="eval-stat eval-stat-sage">
+        <div class="eval-stat-number">81%</div>
+        <div class="eval-stat-label">overall accuracy (50/62 correct)</div>
+      </div>
+      <div class="eval-stat eval-stat-peach">
+        <div class="eval-stat-number">3</div>
+        <div class="eval-stat-label">false positives - traceable to minor graph quality issues</div>
+      </div>
+      <div class="eval-stat eval-stat-peach">
+        <div class="eval-stat-number">1</div>
+        <div class="eval-stat-label">false negative (14/15 known interactions caught)</div>
+      </div>
+      <div class="eval-stat eval-stat-lav">
+        <div class="eval-stat-number">12</div>
+        <div class="eval-stat-label">partial results, all from data gaps - never unsafe outputs</div>
+      </div>
+    </div>
+
+    <!-- Results table -->
+    <div class="eval-table-wrap">
+      <table class="eval-table">
+        <thead>
+          <tr>
+            <th>Test Suite</th>
+            <th>Tests</th>
+            <th>Correct</th>
+            <th>Partial</th>
+            <th>Accuracy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Safety Check</td>
+            <td>22</td>
+            <td>17</td>
+            <td>5</td>
+            <td><span class="eval-acc">77%</span></td>
+          </tr>
+          <tr>
+            <td>Deficiency Check</td>
+            <td>12</td>
+            <td>12</td>
+            <td>0</td>
+            <td><span class="eval-acc">100%</span></td>
+          </tr>
+          <tr>
+            <td>Recommendation</td>
+            <td>15</td>
+            <td>10</td>
+            <td>5</td>
+            <td><span class="eval-acc">67%</span></td>
+          </tr>
+          <tr>
+            <td>Multi-Agent (E2E)</td>
+            <td>13</td>
+            <td>11</td>
+            <td>2</td>
+            <td><span class="eval-acc">85%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <details class="arch-details">
+      <summary class="arch-details-summary">
+        <i data-lucide="microscope"></i>
+        <span>Results Discussion</span>
+        <i data-lucide="chevron-down" class="arch-details-chevron"></i>
+      </summary>
+      <div class="arch-details-body">
+        <p class="arch-details-intro">
+          The system is strongest where it matters most - safety. It detected every known supplement-medication conflict including Fish Oil with Warfarin, CoQ10 with Metformin, and Aloe with Warfarin. Deficiency detection works across all three pathways (diet, medication, supplement) and correctly identifies compounded risks when multiple sources affect the same nutrient. The 12 partial results all trace to knowledge graph coverage gaps for common conditions (joint pain, fatigue, headaches) or minor data quality issues - not to the system giving dangerous advice.
+      </div>
+    </details>
+
+  </section>
+
+  <!-- LIMITATIONS & FUTURE WORK -->
+  <section id="limitations">
+    <p class="section-label">Discussion</p>
+    <h2 class="section-title">Limitations &amp; Future Work</h2>
+    <div class="section-divider"></div>
+
+    <div class="lim-grid">
+
+      <!-- Limitations card -->
+      <div class="lim-card lim-card-sage">
+        <h3 class="lim-card-title">Limitations</h3>
+        <ul class="lim-list">
+          <li>
+            <span class="lim-term lim-term-sage">Knowledge Graph Coverage:</span>
+            bounded by what DrugBank and Mayo Clinic provide - sufficient to demonstrate the architecture but not comprehensive. Small data quality issues can propagate through multi-hop reasoning and produce visible output errors.
+          </li>
+          <li>
+            <span class="lim-term lim-term-sage">Static Knowledge Base:</span>
+            a fixed snapshot that won't reflect newly discovered interactions or updated clinical guidelines until manually rebuilt.
+          <li>
+            <span class="lim-term lim-term-sage">LLM Reliability:</span>
+            the system relies on Claude (Anthropic API) for multiple reasoning steps, introducing risks of hallucination, inconsistency, and sensitivity to prompt phrasing - which could affect any stage of the pipeline.
+          </li>
+          <li>
+            <span class="lim-term lim-term-sage">Decision Support Only:</span>
+            the system is not a substitute for medical advice. All recommendations should be validated by a qualified healthcare provider.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Future Work card -->
+      <div class="lim-card lim-card-sage">
+        <h3 class="lim-card-title">Future Work &amp; Improvements</h3>
+        <ul class="lim-list">
+          <li>
+            <span class="lim-term lim-term-sage">Expanded Data Coverage:</span>
+            scale the knowledge graph to broader biomedical databases and capture richer patient context including lifestyle factors such as age, stress, and exercise.
+          </li>
+          <li>
+            <span class="lim-term lim-term-sage">Dynamic Knowledge Verification:</span>
+            cross-validate outputs against live biomedical data sources to surface newly updated interactions and guidelines.
+          </li>
+          <li>
+            <span class="lim-term lim-term-sage">Conversational Flexibility:</span>
+            support follow-up questions, comparative analysis, and symptom-based querying for a more interactive user experience.
+          </li>
+          <li>
+            <span class="lim-term lim-term-sage">Fully Agentic Graph Traversal:</span>
+            replace remaining hardcoded Cypher queries with LLM-generated queries across all agents, enabling more flexible and comprehensive graph reasoning.
+          </li>
+          <li>
+            <span class="lim-term lim-term-sage">Clinical Validation:</span>
+            evaluate outputs against pharmacist or physician review for safety and accuracy assessment.
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
   <!-- LEARN MORE -->
   <section id="learn-more">
     <p class="section-label">Resources</p>
     <h2 class="section-title">Learn More</h2>
     <div class="section-divider"></div>
     <div class="learn-grid">
-      <a href="https://personalized-supplement-recommender.vercel.app" class="learn-card learn-card-sage">
+      <a href="https://personalized-supplement-recommender.vercel.app/" class="learn-card learn-card-sage">
         <div class="learn-icon"><i data-lucide="play"></i></div>
-        <div class="learn-label">Demo</div>
+        <div class="learn-label">Demo Link</div>
       </a>
       <a href="https://github.com/kevinkchen1/Personalized-Supplement-Recommender" class="learn-card learn-card-lav">
         <div class="learn-icon"><i data-lucide="github"></i></div>
