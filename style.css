@@ -875,11 +875,13 @@ details[open] .arch-details-summary {
   margin: 2rem 0;
   border: 1px solid var(--border);
   border-radius: 16px;
-  overflow: hidden;
+  overflow-x: auto;   /* enables horizontal scroll on mobile */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
 }
 
 .eval-table {
   width: 100%;
+  min-width: 420px;   /* prevents table from collapsing below readable width */
   border-collapse: collapse;
   font-family: 'Nunito', sans-serif;
   font-size: 0.9rem;
@@ -897,12 +899,17 @@ details[open] .arch-details-summary {
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap; /* keeps headers on one line */
 }
 
 .eval-table td {
   padding: 0.9rem 1.2rem;
   color: var(--text-mid);
   border-top: 1px solid var(--border);
+}
+
+.eval-table td:first-child {
+  white-space: nowrap; /* keeps test suite names intact */
 }
 
 .eval-table tbody tr:hover {
@@ -913,6 +920,15 @@ details[open] .arch-details-summary {
 .eval-acc {
   font-weight: 700;
   color: var(--sage);
+}
+
+/* Mobile: tighten up table padding on small screens */
+@media (max-width: 500px) {
+  .eval-table th,
+  .eval-table td {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.82rem;
+  }
 }
 
 /* ============================================
